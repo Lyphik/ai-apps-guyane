@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Apps Guyane - Applications IA pour la Guyane Française</title>
+    <meta name="description" content="Les meilleures applications d'intelligence artificielle adaptées à la Guyane française et optimisées pour nos spécificités locales.">
+    
+    <!-- Optimisation pour connexions lentes -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --dark-color: #1f2937;
+            --light-color: #f8fafc;
+            --text-color: #374151;
+            --border-color: #e5e7eb;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --guyane-green: #228B22;
+            --guyane-gold: #FFD700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(0) translateY(0); }
+            100% { transform: translateX(-100px) translateY(-100px); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            animation: slideInUp 1s ease-out;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+
+        .flag-emoji {
+            animation: wave 2s infinite ease-in-out;
+            display: inline-block;
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 3rem 0;
+        }
+
+        .intro-section {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .intro-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .intro-section p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 3rem 0;
+            box-shadow: 0 10px 25px var(--shadow-color);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Apps Grid */
+        .apps-section {
+            margin: 3rem 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            animation: fadeInUp 1s ease-out 0.8s both;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            animation: fadeInUp 1s ease-out 1s both;
+        }
+
+        .app-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 15px var(--shadow-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--guyane-green), var(--guyane-gold));
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--shadow-color);
+        }
+
+        .app-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .app-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .app-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        .app-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.25rem;
+            color: var(--dark-color);
+        }
+
+        .app-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-badge {
+            padding: 0.2rem 0.5rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-online {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-offline {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .connection-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        .connection-good { background: var(--success-color); }
+        .connection-medium { background: var(--warning-color); }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .app-description {
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .app-features {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .app-features li {
+            padding: 0.25rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .app-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        .app-actions {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Guyane Tips */
+        .guyane-tips {
+            background: linear-gradient(135deg, var(--guyane-green), #32CD32);
+            color: white;
+            padding: 2rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        .guyane-tips h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .tip-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .tip-item strong {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--guyane-gold);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: var(--guyane-gold);
+        }
+
+        .footer-section a {
+            color: #9ca3af;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--guyane-gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 1rem;
+            margin-top: 2rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .apps-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .app-actions {
+                flex-direction: column;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <h1>🤖 AI Apps Guyane <span class="flag-emoji">🇬🇫</span></h1>
+            <p class="subtitle">Applications IA adaptées à la Guyane française</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="intro-section">
+                <h2>Bienvenue dans l'écosystème IA de Guyane</h2>
+                <p>Découvrez les meilleures applications d'intelligence artificielle testées et optimisées pour nos spécificités locales : connexions variables, contexte tropical et besoins spécifiques de notre territoire.</p>
+            </section>
+
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">24</span>
+                        <span class="stat-label">Apps Référencées</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">Mode Hors-ligne</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">98%</span>
+                        <span class="stat-label">Compatible Mobile</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">🇬🇫</span>
+                        <span class="stat-label">Made in Guyane</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="apps-section">
+                <h2 class="section-title">Applications Recommandées</h2>
+                <div class="apps-grid">
+                    <!-- ChatGPT -->
+                    <article class="app-card">
+                        <div class="app-header">
+                            <div class="app-icon">💬</div>
+                            <div class="app-info">
+                                <h3>ChatGPT</h3>
+                                <div class="app-status">
+                                    <span class="status-badge status-online">En ligne</span>
+                                    <div class="connection-indicator connection-good"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="app-description">Assistant IA conversationnel polyvalent, parfait pour la rédaction, l'aide aux devoirs et les questions générales. Optimisé pour connexions 3G/4G.</p>
+                        <ul class="app-features">
+                            <li>Interface en français</li>
+                            <li>Mode conversation fluide</li>
+                            <li>Aide à la rédaction</li>
+                            <li>Support technique</li>
+                        </ul>
+                        <div class="app-actions">
+                            <a href="https://chat.openai.com" class="btn btn-primary" target="_blank">Utiliser 🚀</a>
+                            <a href="#" class="btn btn-outline">Conseils Guyane</a>
+                        </div>
+                    </article>
+
+                    <!-- Claude -->
+                    <article class="app-card">
+                        <div class="app-header">
+                            <div class="app-icon">🎯</div>
+                            <div class="app-info">
+                                <h3>Claude</h3>
+                                <div class="app-status">
+                                    <span class="status-badge status-online">En ligne</span>
+                                    <div class="connection-indicator connection-good"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="app-description">Assistant IA avancé d'Anthropic, excellent pour l'analyse, la programmation et les tâches complexes. Interface rapide même avec connexion limitée.</p>
+                        <ul class="app-features">
+                            <li>Analyse de documents</li>
+                            <li>Programmation assistée</li>
+                            <li>Raisonnement complexe</li>
+                            <li>Interface optimisée</li>
+                        </ul>
+                        <div class="app-actions">
+                            <a href="https://claude.ai" class="btn btn-primary" target="_blank">Utiliser 🚀</a>
+                            <a href="#" class="btn btn-outline">Conseils Guyane</a>
+                        </div>
+                    </article>
+
+                    <!-- Perplexity -->
+                    <article class="app-card">
+                        <div class="app-header">
+                            <div class="app-icon">🔍</div>
+                            <div class="app-info">
+                                <h3>Perplexity</h3>
+                                <div class="app-status">
+                                    <span class="status-badge status-online">En ligne</span>
+                                    <div class="connection-indicator connection-good"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="app-description">Moteur de recherche IA qui fournit des réponses avec sources. Idéal pour la recherche d'informations locales sur la Guyane.</p>
+                        <ul class="app-features">
+                            <li>Recherche avec sources</li>
+                            <li>Informations actualisées</li>
+                            <li>Mode focus thématique</li>
+                            <li>Résultats vérifiés</li>
+                        </ul>
+                        <div class="app-actions">
+                            <a href="https://perplexity.ai" class="btn btn-primary" target="_blank">Utiliser 🚀</a>
+                            <a href="#" class="btn btn-outline">Conseils Guyane</a>
+                        </div>
+                    </article>
+
+                    <!-- Midjourney/DALL-E -->
+                    <article class="app-card">
+                        <div class="app-header">
+                            <div class="app-icon">🎨</div>
+                            <div class="app-info">
+                                <h3>DALL-E 3</h3>
+                                <div class="app-status">
+                                    <span class="status-badge status-online">En ligne</span>
+                                    <div class="connection-indicator connection-medium"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="app-description">Générateur d'images IA haute qualité. Parfait pour créer des visuels sur la biodiversité guyanaise et projets créatifs locaux.</p>
+                        <ul class="app-features">
+                            <li>Images haute résolution</li>
+                            <li>Prompts en français</li>
+                            <li>Styles variés</li>
+                            <li>Usage commercial possible</li>
+                        </ul>
+                        <div class="app-actions">
+                            <a href="https://openai.com/dall-e-3" class="btn btn-primary" target="_blank">Utiliser 🚀</a>
+                            <a href="#" class="btn btn-outline">Conseils Guyane</a>
+                        </div>
+                    </article>
+
+                    <!-- Google Translate -->
+                    <article class="app-card">
+                        <div class="app-header">
+                            <div class="app-icon">🌍</div>
+                            <div class="app-info">
+                                <h3>Google Traduction</h3>
+                                <div class="app-status">
+                                    <span class="status-badge status-offline">Hors ligne</span>
+                                    <div class="connection-indicator connection-good"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="app-description">Traducteur IA multilingue avec mode hors-ligne. Essentiel pour communiquer avec les touristes et la diversité linguistique de Guyane.</p>
+                        <ul class="app-features">
+                            <li>Mode hors-ligne disponible</li>
+                            <li>Traduction par photo</li>
+                            <li>Conversation temps réel</li>
+                            <li>Support créole (bêta)</li>
+                        </ul>
+                        <div class="app-actions">
+                            <a href="https://translate.google.com" class="btn btn-primary" target="_blank">Utiliser 🚀</a>
+                            <a href="#" class="btn btn-outline">Conseils Guyane</a>
+                        </div>
+                    </article>
+
+                    <!-- Notion AI -->
+                    <article class="app-card">
+                        <div class="app-header">
+                            <div class="app-icon">📝</div>
+                            <div class="app-info">
+                                <h3>Notion AI</h3>
+                                <div class="app-status">
+                                    <span class="status-badge status-online">En ligne</span>
+                                    <div class="connection-indicator connection-good"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="app-description">Assistant IA intégré à Notion pour la productivité et l'organisation. Parfait pour la gestion de projets locaux et la collaboration.</p>
+                        <ul class="app-features">
+                            <li>Rédaction assistée</li>
+                            <li>Organisation automatique</li>
+                            <li>Collaboration d'équipe</li>
+                            <li>Templates personnalisés</li>
+                        </ul>
+                        <div class="app-actions">
+                            <a href="https://notion.so" class="btn btn-primary" target="_blank">Utiliser 🚀</a>
+                            <a href="#" class="btn btn-outline">Conseils Guyane</a>
+                        </div>
+                    </article>
+                </div>
+            </section>
+
+            <section class="guyane-tips">
+                <h3>💡 Conseils d'optimisation pour la Guyane</h3>
+                <div class="tips-grid">
+                    <div class="tip-item">
+                        <strong>Connexion 3G/4G</strong>
+                        Préférez les applications avec mode allégé ou compression automatique des données.
+                    </div>
+                    <div class="tip-item">
+                        <strong>Heures d'utilisation</strong>
+                        Utilisez les IA en matinée (7h-11h) pour une bande passante optimale.
+                    </div>
+                    <div class="tip-item">
+                        <strong>Mode hors-ligne</strong>
+                        Téléchargez les modèles IA hors-ligne quand une connexion WiFi est disponible.
+                    </div>
+                    <div class="tip-item">
+                        <strong>Optimisation mobile</strong>
+                        Utilisez les applications mobiles plutôt que les versions web quand possible.
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>AI Apps Guyane</h4>
+                    <p>Votre guide des applications IA adaptées au contexte guyanais.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Catégories</h4>
+                    <a href="#">Productivité</a>
+                    <a href="#">Créativité</a>
+                    <a href="#">Éducation</a>
+                    <a href="#">Communication</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Ressources</h4>
+                    <a href="#">Guides d'utilisation</a>
+                    <a href="#">Optimisation réseau</a>
+                    <a href="#">FAQ Guyane</a>
+                    <a href="#">Nouveautés</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Communauté</h4>
+                    <a href="#">Contribuer</a>
+                    <a href="#">Discussions</a>
+                    <a href="#">Signaler un bug</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AI Apps Guyane - Fait avec ❤️ en Guyane française 🇬🇫</p>
+                <p>Projet open source sous licence MIT</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation simple pour les éléments au scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observer tous les éléments avec animation
+        document.querySelectorAll('.app-card, .stat-item, .tip-item').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animation des compteurs dans les stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent);
+                if (isNaN(target)) return;
+                
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    counter.textContent = Math.floor(current);
+                }, 30);
+            });
+        }
+
+        // Démarrer l'animation des compteurs au chargement
+        window.addEventListener('load', () => {
+            setTimeout(animateCounters, 1000);
+        });
+
+        // Optimisation pour connexions lentes
+        if ('connection' in navigator) {
+            const connection = navigator.connection;
+            if (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g') {
+                // Réduire les animations pour connexions très lentes
+                document.body.style.animation = 'none';
+                document.querySelectorAll('*').forEach(el => {
+                    el.style.animation = 'none';
+                    el.style.transition = 'none';
+                });
+            }
+        }
+    </script>
+</body>
+</html>
